@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'post_images#index'
+root :to => 'home#top'
 
+devise_for :users
+  resources :books, only: [:new, :create, :index, :show]
 
-  resourses :books, only:[:new, :create, :index, :show]
 end
