@@ -1,4 +1,14 @@
 class BooksController < ApplicationController
+
+
+# 追加
+before_action :authenticate, only: [:new, :create]
+
+
+
+
+
+
   def new
   	@book = Book.new
   end
