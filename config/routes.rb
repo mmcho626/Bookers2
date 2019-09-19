@@ -17,7 +17,7 @@ devise_for :users
 
 resources :books, only: [:new, :create, :index, :show, :destroy]
 
-resources :users, only: [:index, :show, :edit]
+resources :users, only: [:index, :show, :edit, :show, :update]
 
 
 end
