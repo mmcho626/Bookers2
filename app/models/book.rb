@@ -6,6 +6,8 @@ class Book < ApplicationRecord
 
 
 
+# 追加
+
 
  def user
     return User.find_by(id: self.user_id)
