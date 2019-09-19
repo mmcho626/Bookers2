@@ -1,2 +1,16 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<% @books.each do |book| %>
+
+
+<!-- attachment いる？ -->
+<!-- attachment_image_tagはrefileで用意されている<img>タグを作成してくれるヘルパーです。bookモデルの中のimage_idから保存された画像のimgタグを生成します。 -->
+	<%= attachment_image_tag book, :image %>
+
+
+<!--  bookモデルのimage、カラム名変更する必要がありそう。Userモデルのimage_id？に。
+ -->
+
+	<%= book.title %>
+
+	<%= book.user.name %>
+
+	<% end %>
