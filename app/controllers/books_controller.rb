@@ -3,8 +3,7 @@ class BooksController < ApplicationController
 
 # 追加
 before_action :authenticate, only: [:new, :create]
-
-
+belongs_to :user
 
 
 
