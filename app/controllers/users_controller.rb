@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+	has_many :books
+
+
+
   def index
   	@users = User.all
   end
@@ -23,14 +28,6 @@ end
 
 
 
-# 投稿者だけが編集できる　正しいコントローラどこかわからないので(仮)で入れる。どのビューかによる。（左サイドバー）
-
- def ensure_correct_user
-    @book = Book.find_by(id:params[:id])
-    if @book.user_id != @current_user.id
-      flash[:notice] = "権限がありません"
-      redirect_to("/books/index")
-  end
 
 
 

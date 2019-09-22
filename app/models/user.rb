@@ -11,4 +11,15 @@ class User < ApplicationRecord
    attachment :profile_image
 
 
+
+
+
+
+  def books
+  return Book.where(user_id: self.id)
+  end
+
+
+
+
 end

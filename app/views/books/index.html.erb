@@ -1,18 +1,30 @@
-<% @books.each do |book| %>
-
-
 <!-- attachment いる？ -->
 <!-- attachment_image_tagはrefileで用意されている<img>タグを作成してくれるヘルパーです。bookモデルの中のimage_idから保存された画像のimgタグを生成します。 -->
 
 
 
-<!--  bookモデルのimage、カラム名変更する必要がありそう。Userモデルのimage_id？に。
- -->
 
-	<%= book.title %>
-<br>
-    <%= book.body %>
-<br>
-	<%= book.user.name %>
 
-	<% end %>
+ <table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Body</th>
+			<th></th>
+		</tr>
+	</thead>
+
+    <tbody>
+
+	 <% @books.each do |t| %>
+ <tr>
+    		<td><%=t.title %></td>
+    		<td><%=t.body %></td>
+    		<td><%= link_to "show",book_path(t) %></td>
+
+    		</th>
+
+    	</tr>
+    	<% end %>
+    </tbody>
+</table>
