@@ -1,4 +1,26 @@
+
+<h3>New Book</h3>
+
+
+
+
+<!-- フォームの部分 -->
+
+<div class="form">
+
+
+
+
 <%= form_for(@book) do |t| %>
+
+
+
+
+<% if flash[:notice] %>
+        <%= flash[:notice] %>
+<% end %>
+
+
 
 
 <% if @book.errors.any? %>

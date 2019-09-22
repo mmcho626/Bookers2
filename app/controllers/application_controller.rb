@@ -12,12 +12,17 @@ class ApplicationController < ActionController::Base
 
 
 
-before_action :current_user
+before_action :set_current_user
 
-  def current_user
-    return unless session[:user_id]
-    @current_user ||= User.find(session[:user_id])
-  end
+
+  # エラー原因の記述
+  #(before_action :current_user)
+  # def current_user
+  # return unless session[:user_id]
+  # @current_user ||= User.find(session[:user_id])
+  # end
+
+
 
 def set_current_user
   @current_user = User.find_by(id: session[:user_id])

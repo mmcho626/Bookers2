@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
 
-	has_many :books
-
-
 
   def index
   	@users = User.all
