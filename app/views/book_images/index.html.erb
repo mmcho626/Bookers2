@@ -1,0 +1,34 @@
+
+
+
+<table>
+	<thead>
+		<tr>
+			<th>ユーザ名</th>
+			<th>Title</th>
+			<th>Body</th>
+			<th></th>
+		</tr>
+	</thead>
+
+    <tbody>
+
+	 <% @books.each do |t| %>
+ <tr>
+
+
+            <td><%= t.user.name %></td>
+    		<td><%=t.title %></td>
+    		<td><%=t.body %></td>
+    		<td><%= link_to "show",book_path(t) %></td>
+
+    		</th>
+
+    	</tr>
+
+
+
+
+    	<% end %>
+    </tbody>
+</table>

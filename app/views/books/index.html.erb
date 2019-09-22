@@ -21,6 +21,11 @@
 
 
             <td><%= t.user.name %></td>
+
+
+            <td><%= attachment_image_tag book_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></td>
+
+
             <%= attachment_image_tag @book, :image %>
     		<td><%=t.title %></td>
     		<td><%=t.body %></td>

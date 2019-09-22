@@ -1,11 +1,9 @@
 <div class="profile-container">
     <h3 class="profile-name"><%= @user.name %></h3>
-    <%= image_tag('', class: "img-circle pull-left profile-img", style: "width: 100px; height: 100px;") %>
+    <%= attachment_image_tag @user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+	<% if @user.id == current_user.id %>
         <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+    <% end %>
 </div>
-
-
-
-
 
 <!-- user_id が正しかったらという記述を足す -->

@@ -11,16 +11,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <%= form_for(@book) do |t| %>
-
-
-
 
 <% if flash[:notice] %>
         <%= flash[:notice] %>
 <% end %>
-
-
 
 
 <% if @book.errors.any? %>
@@ -31,9 +35,6 @@
 
 
 <% end %>
-
-
-
 
 
   <h4>Titile</h4>
