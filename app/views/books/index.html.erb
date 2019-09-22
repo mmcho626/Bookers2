@@ -18,6 +18,10 @@
 
 	 <% @books.each do |t| %>
  <tr>
+
+
+            <td><%= t.user.name %></td>
+            <%= attachment_image_tag @book, :image %>
     		<td><%=t.title %></td>
     		<td><%=t.body %></td>
     		<td><%= link_to "show",book_path(t) %></td>
@@ -25,6 +29,10 @@
     		</th>
 
     	</tr>
+
+
+
+
     	<% end %>
     </tbody>
 </table>
