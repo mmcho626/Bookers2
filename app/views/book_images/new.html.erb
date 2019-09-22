@@ -1,0 +1,16 @@
+<%= form_for(@book_image) do |f| %>
+
+    <% if @book_image.errors.any? %>
+        <%= @book_image.errors.count %>件のエラーが発生しました
+        <% @book_image.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+    <% end %>
+
+    <%= f.attachment_field :image %>
+    <%= f.text_field :title %>
+    <%= f.text_area :opinion %>
+    <%= f.submit %>
+
+
+ <% end %>

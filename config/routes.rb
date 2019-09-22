@@ -19,5 +19,7 @@ resources :books
 
 resources :users, only: [:index, :show, :edit, :show, :update]
 
+resources :book_images, only: [:new, :create, :index, :show]
+
 
 end
