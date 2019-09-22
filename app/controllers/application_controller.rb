@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 before_action :set_current_user
 
 
-  # エラー原因の記述
+  # エラー原因の記述 ヘッダー切り替わらなくなる
   #(before_action :current_user)
   # def current_user
   # return unless session[:user_id]
@@ -27,6 +27,7 @@ before_action :set_current_user
 def set_current_user
   @current_user = User.find_by(id: session[:user_id])
 end
+
 
 
 # 投稿者だけが編集できる　正しいコントローラどこかわからないので(仮)で入れる。どのビューかによる。（左サイドバー）
