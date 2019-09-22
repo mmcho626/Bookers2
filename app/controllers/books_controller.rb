@@ -25,7 +25,6 @@ before_action :authenticate, only: [:new, :create]
 
   def show
     @book = Book.find(params[:id])
-     @user = User.find_by(id: @post.user_id)
   end
 
   def edit

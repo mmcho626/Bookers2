@@ -11,10 +11,3 @@
 <%= link_to "Edit", edit_book_path(@book) %>
 
 <%= link_to "back",books_path %>
-
-
-
-<% if @book.user_id == @current_user.id %>
-  <%= link_to("編集","users/#{@book.id}/edit") %>
-  <%= link_to("削除","users/#{@book.id}/destroy",{method:"book"}) %>
-<% end %>
