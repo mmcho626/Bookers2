@@ -20,8 +20,7 @@
 
  <tr>
 
-            <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></td>
-
+            <td><%= attachment_image_tag t, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></td>
 
             <td><%=t.name %></td>
             <td><%= link_to "show",user_path(t) %></td>

@@ -10,21 +10,20 @@ class UsersController < ApplicationController
     @books = @user.books
   end
 
-
-
-
- def edit
-        @user = User.find(params[:id])
- end
-
-
- def update
+  def edit
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to users_path
+    end
+  end
+
+
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
     redirect_to user_path(@user.id)
-end
-
-
+  end
 
 
 
