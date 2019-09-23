@@ -10,44 +10,34 @@
 
 
 
+<%= form_for(@book) do |f| %>
+
+    <% if @book.errors.any? %>
+        <%= @book.errors.count %>件のエラーが発生しました
+        <% @book.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+    <% end %>
+
+    <%= f.text_field :title %>
+    <%= f.text_area :body %>
+    <%= f.submit %>
 
 
-
-
-
-
-
-
-
-
-<%= form_for(@book) do |t| %>
-
-<% if flash[:notice] %>
-        <%= flash[:notice] %>
-<% end %>
-
-
-<% if @book.errors.any? %>
-
-      <% @book.errors.full_messages.each do |t| %>
-        <li><%= t %></li>
-      <% end %>
-
-
-<% end %>
-
-
-  <h4>Titile</h4>
-  <%= t.text_field :title %>
-
-  <h4>Body</h4>
-  <%= t.text_area :body %>
-<br>
-  <%= t.submit 'Create Book' %>
-
-
-
-<% end %>
+ <% end %>
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

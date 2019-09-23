@@ -72,7 +72,38 @@ end
         params.require(:book).permit(:title, :body)
     end
 
-
-
-
 end
+
+
+
+
+
+
+ # BookImages の記述
+
+#   def new
+#     @book_image = BookImage.new
+#     end
+
+#     def create
+#     @book_image = BookImage.new(book_image_params)
+#     @book_image.user_id = current_user.id
+#     @book_image.save
+#     redirect_to book_images_path
+#     end
+
+#     def index
+#         @book_images = BookImage.all
+#         @books = Book.all
+#     end
+
+#     def show
+#     end
+
+
+# private
+#     def book_image_params
+#         params.require(:book_image).permit(:title, :image, :body)
+#     end
+
+# end
