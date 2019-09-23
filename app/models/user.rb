@@ -22,6 +22,14 @@ class User < ApplicationRecord
 
 
 
+  def email_required?
+    false
+  end
+  def email_changed?
+    false
+  end
+
+
 
   def books
   return Book.where(user_id: self.id)
