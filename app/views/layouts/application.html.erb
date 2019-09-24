@@ -50,6 +50,7 @@
 
 
 
+<% if user_signed_in? %>
 
 <div class="col-xs-3">
          <ul class="nav nav-pills nav-stacked">
@@ -59,10 +60,10 @@
             <li><a href="#">サーバー３</a></li>
          </ul>
         </div>
-        
+<% else %>
 
 
-
+<% end %>
 
 
 
