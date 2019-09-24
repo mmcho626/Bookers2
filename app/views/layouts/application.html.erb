@@ -12,9 +12,18 @@
 
 
 <header>
-<div id="slidemenu">
-  <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-    <% if user_signed_in? %>
+
+
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Bookers</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
       <li class="">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
@@ -32,8 +41,37 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
-  </ul>
-</div>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<div class="col-xs-3">
+         <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">ダッシュボード</a></li>
+            <li><a href="#">サーバー１</a></li>
+            <li><a href="#">サーバー２</a></li>
+            <li><a href="#">サーバー３</a></li>
+         </ul>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
 </header>
 
 

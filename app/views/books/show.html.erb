@@ -1,4 +1,16 @@
 
+
+
+
+<div class="success">
+<% if flash[:notice] %>
+        <%= flash[:notice] %>
+    <% end %>
+</div>
+
+
+
+
 <%= attachment_image_tag @book.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %>
 
 

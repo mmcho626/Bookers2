@@ -6,6 +6,7 @@
 
 
 
+ <div class="col-xs-9">
 
 <table>
     <thead>
@@ -39,3 +40,41 @@
 
     </tbody>
 </table>
+
+</div>
+
+<!-- 
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+     <% @books.each do |t| %>
+
+ <tr>
+
+            <td><%= attachment_image_tag t.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></td>
+
+
+            <td><%=t.title %></td>
+            <td><%=t.body %></td>
+            <td><%= link_to "show",book_path(t) %></td>
+
+            </th>
+
+        </tr>
+
+
+        <% end %>
+
+    </tbody>
+</table>
+ -->
