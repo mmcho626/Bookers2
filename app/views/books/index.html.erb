@@ -5,8 +5,28 @@
 
 
 
+<%= render partial: 'share/sidebar',locals: { book: @book, user: @user } %>
+
+
 
  <div class="col-xs-9">
+
+
+
+
+
+
+<% if @book.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @book.errors.full_messages.each do |t| %>
+        <li><%= t %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 
 <table>
     <thead>

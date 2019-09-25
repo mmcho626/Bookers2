@@ -13,6 +13,11 @@ class User < ApplicationRecord
 
 
 
+
+  validates :email,:name, presence: true
+  validates :name, length: { in:2..20 }
+
+
    has_many :books, dependent: :destroy
    has_many :book_images, dependent: :destroy
 

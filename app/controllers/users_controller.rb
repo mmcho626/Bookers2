@@ -1,20 +1,31 @@
 class UsersController < ApplicationController
 
 
+
+   before_action :authenticate_user!
+
+
+
+
   def index
   	@users = User.all
+    @book_new = Book.new # renderでindexページにsidebar.html.erbを呼び出すための変数を定義 CreateBook
+    @user = current_user #books一覧では自分の画像が表示される
+
   end
 
   def show
-    @user = User.find(params[:id])
+    #books一覧では自分の画像が表示される。current_userカラムの"レコード"を渡すので、右辺はcurrent_userと表記。
+    @user = User.find(params[:id]) # renderでshowページにsidebar.html.erbを呼び出すときにも利用可能。CreateBook
     @books = @user.books
+    @book_new = Book.new # renderでshowページにsidebar.html.erbを呼び出すための変数を定義
   end
 
   def edit
-    @user = User.find(params[:id])
+    @book_new = Book.new # renderでeditページにsidebar.html.erbを呼び出すための変数を定義 CreateBook
+    @user = User.find(params[:id]) # renderでeditページにsidebar.html.erbを呼び出すときにも利用可能。
     if @user.id != current_user.id
-      flash[:notice] = "権限がありません"
-      redirect_to users_path
+      redirect_to user_path(current_user.id)
     end
   end
 
@@ -22,7 +33,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
-    redirect_to user_path(@user.id)
+    redirect_to user_path(user.id)
   end
 
 

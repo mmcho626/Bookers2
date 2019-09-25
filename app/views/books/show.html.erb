@@ -2,6 +2,24 @@
 
 
 
+<!-- showページで定義した変数を、sidebar.html.erbのbookに代入 -->
+
+<!-- 短縮形(中身)は、render '一つ前の階層のフォルダ/ファイル名’, ←のファイルにおいた変数: このページのアクションで定義したインスタンス変数-->
+
+<!-- 例：　render 'share/sidebar', book: @book_new -->
+
+
+<%= render partial: 'share/sidebar',locals: { book: @book_new, user: @user } %>
+
+
+
+
+ <div class="col-xs-9">
+
+
+
+
+
 <div class="success">
 <% if flash[:notice] %>
         <%= flash[:notice] %>
@@ -27,3 +45,5 @@
       <%= link_to "Edit", edit_book_path(@book) %>
       <%= link_to "Destroy", book_path(@book), method: :delete %>
 <% end %>
+
+</div>

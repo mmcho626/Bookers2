@@ -6,6 +6,12 @@ class Book < ApplicationRecord
 
 
 
+ validates :title,:body, presence: true
+
+ validates :body, length: { maximum: 199 }
+
+
+
 # 追加
 
 

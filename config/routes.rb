@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'home/top'
+  get 'home/about'
   #get 'users/index'
   #get 'users/show'
   # get 'books/new'
@@ -24,3 +24,5 @@ resources :book_images, only: [:new, :create, :index, :show]
 
 
 end
+
+

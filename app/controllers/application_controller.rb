@@ -5,12 +5,7 @@ class ApplicationController < ActionController::Base
 
 
 
-  before_action :authenticate_user!
-
-
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-
+   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # エラー原因の記述 ヘッダー切り替わらなくなる
   #(before_action :current_user)
@@ -28,6 +23,17 @@ end
 
 
 
+
+# サインイン、サインアップ後のリダイレクト先を変更
+# applicationコントローラ内では、@（インスタンス変数)は使えないので、currentでログイン後のマイページを表示
+
+def after_sign_in_path_for(resource)
+  user_path(current_user.id)
+end
+
+def after_sign_out_path_for(resource)
+  root_path
+end
 
 
 

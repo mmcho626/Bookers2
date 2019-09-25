@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
 
 
-# 追加
 
+  before_action :authenticate_user!
 
   def new
   	@book = Book.new
@@ -12,12 +12,13 @@ class BooksController < ApplicationController
 
 
   def create
-    book = Book.new(book_params)
-    book.user_id = current_user.id
-  if book.save
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+  if @book.save
     flash[:notice] = "Book was successfully created."
-    redirect_to book_path(book.id)
+    redirect_to book_path(@book.id)
   else
+    @books = Book.all
     render 'index'
   end
 
@@ -27,29 +28,25 @@ class BooksController < ApplicationController
 
 
   def index
+    @book = Book.new
   	@books = Book.all
     @users = User.all
+    @user = current_user #books一覧では自分の画像が表示される。current_userカラムの"レコード"を渡すので、右辺はcurrent_userと表記。
   end
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user_id
+    @book_new = Book.new # renderでshowページにsidebar.html.erbを呼び出すための変数を定義
+    @user = User.find(params[:id])
   end
 
   def edit
+    @book_new = Book.new # renderでeditページにsidebar.html.erbを呼び出すための変数を定義
       @book = Book.find(params[:id])
     if @book.user_id != current_user.id
       flash[:notice] = "権限がありません"
       redirect_to books_path
     end
-
-
-  if @book.update(book_params)
-    flash[:notice] = "Book was successfully updated."
-    redirect_to book_path(@book.id)
-  else
-    render action: :edit
-  end
 
   end
 
@@ -57,31 +54,30 @@ class BooksController < ApplicationController
 
 
 def update
-     book = Book.find(params[:id])
-  if book.update(book_params)
+     @book = Book.find(params[:id])
+  if @book.update(book_params)
     flash[:notice] = "Book was successfully updated."
-    redirect_to book_path(book.id)
-  else
-    render action: :edit
+    redirect_to book_path(@book)
+   else
+    @books = Book.all
+    render 'index'
   end
 end
 
 
   def destroy
-     book = Book.find(params[:id])
-     book.destroy
-     redirect_to books_path
+    book = Book.find(params[:id]) @book= Bookd.find(params[:book_id])
+    book.destroy
+    redirect_to books_path
   end
 
 
+  private
 
-
-   private
     def book_params
-        params.require(:book).permit(:title, :body)
+      params.require(:book).permit(:title, :body)
     end
-
-end
+  end
 
 
 
