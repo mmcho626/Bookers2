@@ -14,12 +14,16 @@ class User < ApplicationRecord
 
 
 
-  validates :email,:name, presence: true
+  validates :email, :name, presence: true
+
   validates :name, length: { in:2..20 }
+
+  validates :introduction, length: { maximum: 50 }
+
+
 
 
    has_many :books, dependent: :destroy
-   has_many :book_images, dependent: :destroy
 
    attachment :profile_image
 
@@ -34,11 +38,6 @@ class User < ApplicationRecord
     false
   end
 
-
-
-  def books
-  return Book.where(user_id: self.id)
-  end
 
 
 

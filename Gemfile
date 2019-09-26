@@ -51,6 +51,15 @@ group :development do
 end
 
 group :test do
+
+    gem 'rspec-rails'
+    gem "factory_bot_rails"
+    gem 'rspec-parameterized'
+    gem 'faker'
+    gem 'shoulda-matchers'
+    gem 'rails-controller-testing'
+
+
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
@@ -70,3 +79,5 @@ gem "refile-mini_magick"
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+
+gem 'parser', '~> 2.6.3.0'
