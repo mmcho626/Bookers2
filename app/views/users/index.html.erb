@@ -1,9 +1,10 @@
 
 
-<%= render partial: 'share/sidebar',locals: { book: @book_new, user:@user } %>
+
 
 <div class="container">
 <div class="row">
+<%= render partial: 'share/sidebar',locals: { book: @book_new, user:@user } %>
 <div class="col-xs-9">
 
     <h2>Users</h2>
@@ -23,7 +24,7 @@
 
  <tr>
 
-            <td><%= attachment_image_tag t, :profile_image, fallback: "no_image.jpg", size: "90x100", class: "pull-left profile-thumb" %></td>
+            <td><%= attachment_image_tag t, :profile_image, fallback: "no_image.jpg", size: "100x100", class: "pull-left profile-thumb" %></td>
 
             <td><%=t.name %></td>
             <td><%= link_to "show",user_path(t) %></td>
