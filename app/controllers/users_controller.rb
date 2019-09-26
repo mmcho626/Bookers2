@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     #books一覧では自分の画像が表示される。current_userカラムの"レコード"を渡すので、右辺はcurrent_userと表記。
     @user = User.find(params[:id]) # renderでshowページにsidebar.html.erbを呼び出すときにも利用可能。CreateBook
-    @books = @user.books
+    @books = @user.books #上の@userで取得したidのbooks の値を取り出す。
     @book_new = Book.new # renderでshowページにsidebar.html.erbを呼び出すための変数を定義
   end
 
