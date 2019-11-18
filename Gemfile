@@ -81,3 +81,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
 gem 'parser', '~> 2.6.3.0'
+
+group :production do
+  gem 'mysql2'
+end
